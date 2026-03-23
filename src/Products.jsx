@@ -1,4 +1,9 @@
+import { useDispatch } from "react-redux";
+import { addToCart } from "./store/cartSlice";
+
 function Products({ gingerbread }) {
+  const dispatch = useDispatch();
+
   return (
     <div className="allProducts">
       {gingerbread.map((item) => {
@@ -8,6 +13,8 @@ function Products({ gingerbread }) {
             <img src={image} alt="ginger bread" />
             <h3 className="title">{name}</h3>
             <p className="price">EUR {price}</p>
+
+            <button onClick={() => dispatch(addToCart(item))}>В корзину</button>
           </div>
         );
       })}

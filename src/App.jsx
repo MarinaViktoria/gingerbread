@@ -1,11 +1,15 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./App.css";
 import Home from "./Home";
 import Shop from "./Shop";
 import FAQ from "./FAQ";
 import Contact from "./Contact";
+import Cart from "./Cart";
 
 function App() {
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+
   return (
     <Router>
       <nav>
@@ -21,6 +25,9 @@ function App() {
         <Link to="contact" className="link">
           Контакт
         </Link>
+        <Link to="/cart" className="link">
+          Корзина ({totalQuantity})
+        </Link>
       </nav>
 
       <Routes>
@@ -28,6 +35,7 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </Router>
   );
