@@ -1,28 +1,48 @@
-function Buttons({ allProducts, setGingerBread, selectedProduct }) {
+import { useDispatch } from "react-redux";
+import { filterByCategory } from "./store/productsSlice";
+
+function Buttons() {
+  const dispatch = useDispatch();
+
   return (
     <div className="btn-container">
-      <button className="btn" onClick={() => setGingerBread(allProducts)}>
+      <button className="btn" onClick={() => dispatch(filterByCategory("Все"))}>
         Все
       </button>
-      <button className="btn" onClick={() => selectedProduct("Видеоигры")}>
+      <button
+        className="btn"
+        onClick={() => dispatch(filterByCategory("Видеоигры"))}
+      >
         Видеоигры
       </button>
       <button
         className="btn"
-        onClick={() => selectedProduct("Любимые персонажи")}
+        onClick={() => dispatch(filterByCategory("Любимые персонажи"))}
       >
         Любимые персонажи
       </button>
-      <button className="btn" onClick={() => selectedProduct("День рождения")}>
+      <button
+        className="btn"
+        onClick={() => dispatch(filterByCategory("День рождения"))}
+      >
         День рождения
       </button>
-      <button className="btn" onClick={() => selectedProduct("Рождество")}>
+      <button
+        className="btn"
+        onClick={() => dispatch(filterByCategory("Рождество"))}
+      >
         Рождество
       </button>
-      <button className="btn" onClick={() => selectedProduct("Школа")}>
+      <button
+        className="btn"
+        onClick={() => dispatch(filterByCategory("Школа"))}
+      >
         Школа
       </button>
-      <button className="btn" onClick={() => selectedProduct("Разное")}>
+      <button
+        className="btn"
+        onClick={() => dispatch(filterByCategory("Разное"))}
+      >
         Разное
       </button>
     </div>

@@ -1,24 +1,14 @@
-import { useState } from "react";
-import "./App.css";
-import { allProducts } from "./allProducts";
+import { useSelector } from "react-redux";
 import Products from "./Products";
 import Buttons from "./Buttons";
+import "./App.css";
 
 function Shop() {
-  const [gingerbread, setGingerBread] = useState(allProducts);
-  const selectedProduct = (searchTerm) => {
-    const newSelection = allProducts.filter(
-      (item) => item.searchTerm === searchTerm,
-    );
-    setGingerBread(newSelection);
-  };
+  const gingerbread = useSelector((state) => state.products.filtered);
+
   return (
     <div className="shop-container">
-      <Buttons
-        selectedProduct={selectedProduct}
-        allProducts={allProducts}
-        setGingerBread={setGingerBread}
-      />
+      <Buttons />
       <Products gingerbread={gingerbread} />
     </div>
   );
