@@ -1,31 +1,57 @@
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart, clearCart } from "./store/cartSlice";
+import { removeFromCart, addToCart, clearCart } from "./store/cartSlice";
+import "./App.css";
 
 function Cart() {
   const { items, totalPrice } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   return (
-    <div>
-      <h2>Корзина</h2>
+    <div className="cart-container">
+      <h2 className="cart-title">Корзина</h2>
 
-      {items.map((item) => (
-        <div key={item.id}>
-          <h4>{item.name}</h4>
-          <p>Количество: {item.quantity}</p>
-          <p>Цена: {item.price}</p>
+      {items.length === 0 ? (
+        <p className="empty">Корзина пуста</p>
+      ) : (
+        <>
+          <div className="cart-items">
+            {items.map((item) => (
+              <div className="cart-item" key={item.id}>
+                <img src={item.image} alt={item.name} />
 
-          <button onClick={() => dispatch(removeFromCart(item.id))}>
-            Удалить
-          </button>
-        </div>
-      ))}
+                <div className="cart-info">
+                  <h4>{item.name}</h4>
+                  <p>{item.price} EUR</p>
 
-      <h3>Итого: {totalPrice} EUR</h3>
+                  <div className="quantity">
+                    <button onClick={() => dispatch(removeFromCart(item.id))}>
+                      -
+                    </button>
+                    <span>{item.quantity}</span>
+                    <button onClick={() => dispatch(addToCart(item))}>+</button>
+                  </div>
 
-      <button onClick={() => dispatch(clearCart())}>
-        Очистить корзину
-      </button>
+                  <button
+                    className="remove"
+                    onClick={() => dispatch(removeFromCart(item.id))}
+                  >
+                    Удалить
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="cart-summary">
+            <h3>Итого</h3>
+            <p>{totalPrice.toFixed(2).replace(".", ",")} EUR</p>
+
+            <button onClick={() => dispatch(clearCart())}>
+              Очистить корзину
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }
