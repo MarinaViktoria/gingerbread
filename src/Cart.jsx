@@ -44,7 +44,7 @@ function Cart() {
 
           <div className="cart-summary">
             <h3>Итого</h3>
-            <p>{totalPrice.toFixed(2).replace(".", ",")} EUR</p>
+            <p>{totalPrice.toFixed(2)} EUR</p>
 
             <button onClick={() => dispatch(clearCart())}>
               Очистить корзину

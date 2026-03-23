@@ -58,6 +58,14 @@ img:hover {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
 }
+.product-card button {
+  background-color: #ffc5c5;
+  cursor: pointer;
+  padding: 10px 14px;
+}
+.product-card button:hover {
+  background-color: #ff8989;
+}
 .btn-container {
   margin-top: 25px;
   display: flex;
@@ -384,7 +392,7 @@ textarea {
   max-width: 700px;
   width: 100%;
   margin: 0 auto;
-  padding: 8px 20px 8px 20px;
+  padding: 8px 20px;
   border-radius: 12px;
   border: 1.5px solid #fcaeae;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
