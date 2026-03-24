@@ -1,14 +1,66 @@
-body {
-  background-color: #b7b7b7;
-  min-height: 100vh;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-video {
-  width: 100vw;
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #b7b7b7;
+}
+.home-container {
   height: 100vh;
-  object-fit: cover;
-  position: fixed;
+
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overlay {
+  position: absolute;
   top: 0;
-  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-text {
+  color: #333333;
+  text-align: center;
+  width: 90%;
+  max-width: 1000px;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 30px;
+}
+.home-text h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.home-text p {
+  font-size: 1.1rem;
+  line-height: 1.2;
+  margin-top: 10px;
+}
+.home-btn {
+  background-color: #fcaeae;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.home-btn:hover {
+  background-color: #ff8989;
 }
 nav {
   display: flex;
@@ -19,52 +71,74 @@ nav {
 .link {
   padding: 10px 35px;
   text-decoration: none;
-  color: #000000;
+  color: #333333;
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
-  font-size: 17px;
+  font-size: 14px;
 }
 .link:hover {
   background-color: #ff8989;
   cursor: pointer;
 }
 .allProducts {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-img {
-  width: 220px;
-  height: 220px;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .product-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 2%;
-  margin: 30px 15px;
-  width: 270px;
-  height: 320px;
-  background-color: #ffc5c5;
+  padding: 20px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
 }
-img:hover {
-  transform: scale(1.2);
-  transition: transform 1.2s ease-in-out;
-  cursor: pointer;
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+.product-card img {
+  width: 100%;
+  max-width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+.product-card img:hover {
+  transform: scale(1.05);
 }
 .title {
-  margin-top: 10%;
-  font-family: "Montserrat", sans-serif;
+  margin-top: 15px;
   font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff6b6b;
+  margin: 10px 0;
 }
 .product-card button {
-  background-color: #ffc5c5;
+  margin-top: auto;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #fcaeae;
+  color: #fff;
+  font-weight: 600;
   cursor: pointer;
-  padding: 10px 14px;
+  transition: 0.3s;
 }
 .product-card button:hover {
-  background-color: #ff8989;
+  background: #ff8989;
 }
 .btn-container {
   margin-top: 25px;
@@ -83,22 +157,6 @@ img:hover {
 .btn:hover {
   background-color: #ff8989;
   cursor: pointer;
-}
-.container {
-  margin-top: 50px;
-}
-.text {
-  padding: 10px 10px 10px 10px;
-  font-family: "Montserrat", sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background: #fcaeae;
-  opacity: 0.7;
-  margin-left: 2%;
-  margin-bottom: 50px;
-  width: 55%;
 }
 p {
   font-family: "Montserrat", sans-serif;
@@ -129,38 +187,54 @@ h2 {
   cursor: pointer;
 }
 .answer-container {
-  margin: 3% 10% 10% 10%;
+  margin: 3% auto 10% auto;
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 .text-areaAnswer {
-  width: 600px;
-  height: 250px;
-  border: 2px solid #ffc5c5;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+  max-width: 600px;
+  width: 100%;
   padding: 20px;
+  border: 2px solid #ffc5c5;
+  border-radius: 12px;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 .title-answer,
 .title-contact {
-  font-family: "Montserrat", sans-serif;
-  margin-top: 20px;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
 }
 .text-answer {
-  font-family: "Montserrat", sans-serif;
   font-size: 16px;
+  line-height: 1.6;
+  color: #555;
 }
 .btn-answer {
   background-color: #ffc5c5;
-  padding: 12px;
-  width: 80px;
   border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-answer:hover {
+  background-color: #ff8989;
+  transform: scale(1.1);
 }
 .direction {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 .btn-submit {
   background-color: #ffc5c5;
@@ -226,14 +300,9 @@ textarea {
     padding: 5px;
   }
   .link {
-    font-size: 15px;
     text-align: center;
     margin: auto;
     padding: 10px 40px;
-  }
-  .container {
-    margin-top: 7%;
-    margin-bottom: 7%;
   }
   .btn {
     margin: 5px;
@@ -241,41 +310,46 @@ textarea {
     font-size: 14px;
     text-align: center;
   }
-  .text {
-    margin: auto;
-    width: 75%;
-    height: 80%;
+  .home-container {
+    border-radius: none;
+    height: auto;
+    min-height: 100vh;
+    padding: 20px 10px;
   }
-  img {
-    width: 280px;
-    height: 240px;
-  }
-  .product-card {
-    margin: 20px 30px;
-    width: 300px;
-    height: 350px;
-  }
-  .answer-container {
-    margin: 5% 10% 10% 10%;
+  .overlay {
+    position: relative;
+    top: auto;
+    top: auto;
+    background: rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: center;
+    align-items: flex-start;
+    padding: 0;
   }
-  .text-areaAnswer {
-    height: 300px;
+  .home-text {
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px 10px;
   }
-  .title-answer,
-  .title-contact {
-    font-family: "Montserrat", sans-serif;
-    margin-top: 20px;
-    font-size: 18px;
+  .home-text h2 {
+    font-size: 2rem;
   }
-  .text-answer {
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
+  .home-text p {
+    font-size: 20px;
+    color: #111111;
   }
-  .btn-answer {
-    width: 100px;
-    font-size: 18px;
+  .home-btn {
+    display: block;
+    margin: 20px auto 0 auto;
+  }
+  .product-card {
+    padding: 15px;
+  }
+  .product-card img {
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
+    object-fit: cover;
   }
   .audio {
     margin-left: 10%;
@@ -290,18 +364,14 @@ textarea {
     align-items: center;
   }
 }
-@media all and (max-width: 500px) {
+@media all and (max-width: 600px) {
   nav {
     display: flex;
     flex-direction: column;
     padding: 5px;
   }
   .link {
-    font-size: 14px;
     padding: 4px 5px;
-  }
-  .text {
-    width: 80%;
   }
   .btn-container {
     height: 150px;
@@ -310,41 +380,39 @@ textarea {
     flex-wrap: wrap;
     align-items: center;
   }
+  .allProducts {
+    grid-template-columns: 1fr;
+    padding: 10px;
+    gap: 20px;
+  }
   .product-card {
-    margin: 20px 30px;
-    width: 300px;
-    height: 340px;
+    padding: 15px;
   }
-  .btn {
-    margin: 5px;
-  }
-  .answer-container {
-    margin-top: 7%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .product-card button {
+    width: 100%;
   }
   .text-areaAnswer {
-    width: 280px;
-    height: 380px;
-    text-align: left;
+    width: 90%;
+    padding: 15px;
+    min-height: 200px;
+    max-height: 400px;
+    overflow-y: auto;
   }
-  .title-answer {
-    margin: 2%;
-    font-size: 17px;
-  }
-  .text-answer {
-    font-size: 16px;
+  .answer-container {
+    flex-direction: column;
+    gap: 15px;
   }
   .btn-answer {
-    margin: 10px;
-    width: 100px;
-    padding: 5px;
-    font-size: 17px;
+    width: 50px;
+    height: 50px;
   }
   .direction {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
+  }
+  .text-areaAnswer {
+    width: 90%;
+    padding: 15px;
   }
   input {
     width: 300px;
@@ -369,7 +437,6 @@ textarea {
   padding: 40px;
 }
 .cart-title {
-  font-family: "Montserrat", sans-serif;
   color: #333333;
   font-size: 26px;
   text-align: center;
@@ -386,6 +453,7 @@ textarea {
   gap: 20px;
 }
 .cart-item {
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -414,7 +482,6 @@ textarea {
 .cart-info p {
   font-size: 18px;
 }
-
 .quantity {
   font-size: 20px;
   display: flex;
@@ -455,19 +522,28 @@ textarea {
   padding: 10px;
   cursor: pointer;
 }
+
 @media (max-width: 768px) {
+  .cart-container {
+    width: 95%;
+  }
   .cart-item {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 25px 15px;
+    gap: 10px;
   }
   .cart-item img {
-    width: 80px;
+    width: 160px;
+    height: auto;
   }
   .cart-info {
     align-items: center;
+    gap: 6px;
   }
   .quantity {
     justify-content: center;
+    margin-top: 10px;
   }
 }
