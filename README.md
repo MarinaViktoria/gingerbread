@@ -1,16 +1,27 @@
-# React + Vite
+## Gingerbread in Hamburg
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Имбирное печенье в Гамбурге
 
-Currently, two official plugins are available:
+### Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A small web application showcasing personalized gingerbread cookies and pastries. The site features a product catalog, shopping cart functionality, FAQ section, and background music.
 
-## React Compiler
+### Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Home page with welcoming text and a background image
+- Product overview with card layout
+- Shopping cart with quantity management and total calculation
+- FAQ section with navigable answers
+- Background music player
+- Fully responsive design
+- State management using Redux for the shopping cart
+- Products filtering using Redux
+- Hover effects, subtle animations, and improved UI
 
-## Expanding the ESLint configuration
+### Technologies
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Redux (for cart state management and filtering)
+- HTML, CSS / Flexbox / Grid
+- JavaScript (ES6+)
+- Media assets (images, icons, audio)
